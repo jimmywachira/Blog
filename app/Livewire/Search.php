@@ -12,11 +12,16 @@ class Search extends Component
     public $searchText = '';
     public $results = [];
 
+    public function clear(){
+        $this->reset('searchText', 'results');
+    }
+
     public function updatedSearchText()
     {
         $this->reset('results');
         $this->validate();
-        $this->results = Article::where('title', 'like', '%' . $this->searchText . '%')
+        $searchTerm = '%'.$this->searchText.'%';
+        $this->results = Article::where('title', 'like', $searchTerm)
             ->get();
     }
 

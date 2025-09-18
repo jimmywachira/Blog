@@ -42,7 +42,7 @@
     </div>
 
     <div class="p-3 m-6">
-        <livewire:search />
+        {{-- <livewire:search /> --}}
     </div>
 
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>

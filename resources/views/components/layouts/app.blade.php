@@ -11,7 +11,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body class="antialiased font-semibold h-full text-black/50 text-l bg-gradient-to-tl from-blue-300 via-blue-600 to-blue-900" style="font-family:Outfit">
+<body class="antialiased font-semibold h-full text-black/50 text-l bg-gradient-to-tl from-blue-300 via-blue-600 to-blue-900" style="font-family:Outfit" x-data x-on:click="$dispatch('searchClearResults')">
     {{-- <nav class="flex justify-between items-center w-3/4 p-4 m-6">
         <div class="flex items-center shadow rounded-full px-4 py-2">
             <ion-icon size="large" class="text-white mr-2" name="logo-laravel"></ion-icon>
@@ -41,8 +41,16 @@
         </div>
     </div>
 
+    <div class="flex justify-center items-center p-3 m-3">
+        <div class="flex flex-col w-full items-center justify-center text-center">
+            <livewire:search placeholder="Search articles!" />
+        </div>
+    </div>
+
+
+
     <div class="p-3 m-6">
-        {{-- {{ $slot }} --}}
+        {{ $slot }}
     </div>
 
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>

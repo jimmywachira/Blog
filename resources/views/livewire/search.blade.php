@@ -1,15 +1,16 @@
 <div>
-    <form wire:submit.prevent="search">
-        <div class="w-full mt-2">
-            <input wire:model.live="searchText" class="p-2 w-full border text-white bg-blue-500 rounded" type="text" name="query" placeholder="Search articles..." value="{{ request('query') }}">
+    <form>
+        <div class="mt-2">
+            <input class="w-9/12 p-4 text-black border-2 border-blue-700" wire:model.live="searchText" type="text" placeholder="search articles!" />
+
+            <button wire:click.prevent="clear()" class="m-2 text-white bg-blue-700 disabled:bg-inherit hover:text-black px-4 py-2 rounded-full" {{ empty($searchText) ? 'disabled' : '' }}>
+                clear
+            </button>
         </div>
     </form>
 
-    <div class="mt-4">
-        @foreach($results as $result)
-        <div class="p-2 border-b border-gray-300">
-            {{ $result->title }}
-        </div>
-        @endforeach
+    <livewire:search-results :results="$results" :show="!empty($searchText)" />
+
+    <div>
+
     </div>
-</div>
