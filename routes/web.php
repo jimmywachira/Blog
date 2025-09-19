@@ -1,5 +1,8 @@
 <?php
 
+use App\Livewire\ArticleIndex;
+use App\Livewire\ArticleList;
+use App\Livewire\Dashboard;
 use App\Livewire\Settings\Appearance;
 use App\Livewire\Settings\Password;
 use App\Livewire\Settings\Profile;
@@ -8,9 +11,11 @@ use App\Livewire\Search;
 use App\Livewire\ShowArticle;
 
 
-Route::get('/', ShowArticle::class);
 
+Route::get('/', ArticleIndex::class);
 Route::get('/articles/{article}', ShowArticle::class);
+Route::get('/dashboard', Dashboard::class);
+Route::get('/dashboard/articles', ArticleList::class);
 
 // Route::view('dashboard', 'dashboard')
 //     ->middleware(['auth', 'verified'])
