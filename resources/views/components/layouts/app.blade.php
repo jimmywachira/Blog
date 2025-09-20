@@ -1,5 +1,11 @@
 <!doctype html>
-<html lang="en" class="h-full bg-gray-900 bg-gradient-to-b from-gray-900 via-gray-900 to-blue-900/30">
+<html lang="en" class="h-full absolute bg-black/90 bottom-0 left-0  right-0 top-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:100px_80px]">
+{{--
+<div class="relative h-full w-full bg-slate-950">
+    <div class="absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]">
+    </div>
+</div> --}}
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -12,18 +18,19 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body class="h-full antialiased font-semibold text-white" style="font-family:Outfit" x-data x-on:click.away="$dispatch('search.clear-results')">
+<body class="h-full antialiased capitalize font-semibold text-white" style="font-family:Outfit" x-data x-on:click.away="$dispatch('search.clear-results')">
     <div class="flex flex-col min-h-screen">
-        <header class="py-6">
+        <header class="py-6 bg-inherit hover:text-white transition">
             <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between" aria-label="Global">
                 <div class="flex items-center gap-x-12">
-                    <a wire:navigate href="/" class="flex items-center gap-2 -m-1.5 p-1.5">
+                    <x-nav-link :active="request()->routeIs('home')" wire:navigate.hover class="flex items-center gap-2 -m-1.5 p-1.5">
                         <span class="sr-only">J$Co</span>
                         <ion-icon name="logo-laravel" class="h-8 w-auto text-white"></ion-icon>
-                        <span class="text-xl font-bold tracking-tight">Blog</span>
-                    </a>
-                    <div class="hidden lg:flex lg:gap-x-8">
-                        <a wire:navigate.hover href="/dashboard" class="text-sm leading-6 hover:text-white/70 transition">Admin Dashboard</a>
+                        <span class="tracking-tight">Blog</span>
+                    </x-nav-link>
+                    <div class="lg:flex lg:gap-x-8">
+                        {{-- <div class="hidden lg:flex lg:gap-x-8">  --}}
+                        <x-nav-link wire:navigate.hover href="/dashboard" :active="request()->routeIs('dashboard')" class="text-sm leading-6 hover:text-white/70 transition">Dashboard </x-nav-link>
                     </div>
                 </div>
                 <div class="flex lg:flex-1 lg:justify-end">
@@ -51,5 +58,4 @@
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
-
 </html>

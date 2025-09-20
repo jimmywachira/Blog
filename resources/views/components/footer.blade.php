@@ -7,7 +7,7 @@
                     <span class="text-xl font-bold tracking-tight text-white">Livewire Blog</span>
                 </a>
                 <p class="text-white/70 text-base">
-                    A simple and modern blog built with the TALL stack.
+                    A simple blog built with the TALL stack.
                 </p>
                 <div class="flex space-x-6">
                     {{-- Replace # with your actual social media links --}}
@@ -21,12 +21,12 @@
                     </a>
                 </div>
             </div>
-            <div class="mt-12 grid grid-cols-2 gap-8 xl:mt-0 xl:col-span-2">
+            <div class="mt-4 grid grid-cols-2 gap-8 xl:mt-0 xl:col-span-2">
                 <div class="md:grid md:grid-cols-2 md:gap-8">
                     <div>
                         {{-- You can add navigation links here if needed --}}
                     </div>
-                    <div class="mt-12 md:mt-0">
+                    <div class="mt-4 md:mt-0">
                         <h3 class="text-sm font-semibold text-white tracking-wider uppercase">Subscribe to our newsletter</h3>
                         <p class="mt-4 text-base text-white/70">The latest news, articles, and resources, sent to your inbox weekly.</p>
                         <form class="mt-4 sm:flex sm:max-w-md">
@@ -40,8 +40,8 @@
                 </div>
             </div>
         </div>
-        <div class="mt-12 border-t border-white/10 pt-8">
-            <p class="text-base text-white/70 xl:text-center">&copy; {{ date('Y') }} Livewire Blog. All rights reserved.</p>
+        <div class="mt-4 border-t border-white/10 pt-4">
+            <p class="text-base text-white/70 xl:text-center">&copy; {{ date('Y') }} J&amp;Co All rights reserved.</p>
         </div>
     </div>
 </footer>

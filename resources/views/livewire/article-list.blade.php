@@ -1,4 +1,13 @@
 <div class="m-auto mb-4 p-4">
+
+
+    <div class="flex justify-end mb-4">
+        <a href="/dashboard/articles/create" wire:navigate.hover class="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-2 px-4 shadow-xl rounded-md hover:from-blue-700 hover:to-blue-900 transition">
+            Create Article
+        </a>
+
+    </div>
+
     <h1 class="text-3xl text-center text-white mb-4">Articles</h1>
 
     @if (session()->has('message'))
@@ -21,8 +30,8 @@
                 <td class="px-4 py-2">{{ $article->id }}</td>
                 <td class="px-4 py-2">{{ $article->title }}</td>
                 <td class="px-4 py-2 space-x-2 capitalize">
-                    <button class=" text-blue-700 rounded-sm hover:text-blue-900">edit</button>
-                    <button wire:click="delete({{ $article->id }})" class=" text-red-700 rounded-sm hover:text-red-900">delete</button>
+                    <button class=" text-blue-700 hover:text-blue-900 hover:border-2 px-2 py-1 hover:border-blue-700">edit</button>
+                    <button wire:click="delete({{ $article->id }})" wire:confirm="Are you sure you want to delete this article?" class=" text-red-700 hover:text-red-900 hover:border-2 px-2 py-1 hover:border-red-700">delete</button>
                 </td>
             </tr>
             @endforeach

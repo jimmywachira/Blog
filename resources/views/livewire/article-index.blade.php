@@ -2,14 +2,14 @@
     <div class="space-y-8">
         @forelse ($articles as $article)
         <div class="bg-white/10 backdrop-blur-sm rounded-2xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-2xl hover:scale-[1.02]" wire:key="{{ $article->id }}">
-            <a wire:navigate href="/articles/{{ $article->id }}" class="block">
+            <a wire:navigate href="/articles/{{ $article->id }}" class="block text-white/50 hover:text-white transition">
                 <div class="md:flex">
                     <div class="md:flex-shrink-0">
-                        <img class="h-48 w-full object-cover md:w-48" src="https://picsum.photos/seed/{{ $article->id }}/400/300" alt="{{ $article->title }}">
+                        <img class="h-full w-full object-cover md:w-full" src="https://picsum.photos/seed/{{ $article->id }}/400/300" alt="{{ $article->title }}">
                     </div>
                     <div class="p-6 sm:p-8">
-                        <h2 class="text-2xl font-bold text-white mb-2">{{ $article->title }}</h2>
-                        <p class="text-white/70 leading-relaxed">{{ Str::words($article->content, 30) }}</p>
+                        <h2 class="text-xl font-bold text-white mb-2">{{ $article->title }}</h2>
+                        <p class="text-white/70 leading-relaxed ">{{ Str::words($article->content, 240) }}</p>
                     </div>
                 </div>
             </a>
