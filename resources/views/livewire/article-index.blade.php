@@ -1,10 +1,21 @@
-<div class="m-auto">
-    @foreach ($articles as $article)
-    <div class="p-4 mt-5 rounded-l-full rounded-b-full shadow" wire:key="{{ $article->id }}">
-        <h2 class="text-2xl text-black font-bold mb-3 hover:text-black/50">
-            <a href="/articles/{{ $article->id }}">{{ $article->title }}</a>
-        </h2>
-        <p>{{ Str::words($article->content, 500) }}</p>
+<div class="max-w-4xl mx-auto">
+    <div class="space-y-8">
+        @forelse ($articles as $article)
+        <div class="bg-white/10 backdrop-blur-sm rounded-2xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-2xl hover:scale-[1.02]" wire:key="{{ $article->id }}">
+            <a wire:navigate href="/articles/{{ $article->id }}" class="block">
+                <div class="md:flex">
+                    <div class="md:flex-shrink-0">
+                        <img class="h-48 w-full object-cover md:w-48" src="https://picsum.photos/seed/{{ $article->id }}/400/300" alt="{{ $article->title }}">
+                    </div>
+                    <div class="p-6 sm:p-8">
+                        <h2 class="text-2xl font-bold text-white mb-2">{{ $article->title }}</h2>
+                        <p class="text-white/70 leading-relaxed">{{ Str::words($article->content, 30) }}</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        @empty
+        <p class="text-white/70 text-center">No articles found.</p>
+        @endforelse
     </div>
-    @endforeach
 </div>

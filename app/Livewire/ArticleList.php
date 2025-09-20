@@ -2,16 +2,23 @@
 
 namespace App\Livewire;
 
+use App\Models\Article;
 use Livewire\Component;
 use Livewire\Attributes\Title;
 
+#[Title('Manage Articles')]
 class ArticleList extends AdminComponent
 {
-    #[Title('Manage Articles')]
+    public function delete(Article $article){
+    
+        $article->delete();
+        $this->session->flash('message', 'Article deleted successfully.');
+    }
+
     public function render()
     {
         return view('livewire.article-list', [
-            'articles' => \App\Models\Article::all(),
+            'articles' => Article::all(),
         ]);
     }
 }
