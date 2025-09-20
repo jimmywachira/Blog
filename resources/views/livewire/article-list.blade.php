@@ -26,11 +26,11 @@
         </thead>
         <tbody>
             @foreach ($articles as $article)
-            <tr class="border" wire:key="article-{{ $article->id }}">
+            <tr class="border" wire:key="{{ $article->id }}">
                 <td class="px-4 py-2">{{ $article->id }}</td>
                 <td class="px-4 py-2">{{ $article->title }}</td>
                 <td class="px-4 py-2 space-x-2 capitalize">
-                    <button class=" text-blue-700 hover:text-blue-900 hover:border-2 px-2 py-1 hover:border-blue-700">edit</button>
+                    <a class="'inline-flex items-center px-4 py-2 text-center border-white dark:border-blue-600 leading-5 text-blue-700 dark:text-white focus:outline-none focus:border-blue-700 transition duration-150 ease-in-out" href="/dashboard/articles/{{ $article->id }}/edit" wire:navigate.hover>edit</a>
                     <button wire:click="delete({{ $article->id }})" wire:confirm="Are you sure you want to delete this article?" class=" text-red-700 hover:text-red-900 hover:border-2 px-2 py-1 hover:border-red-700">delete</button>
                 </td>
             </tr>

@@ -5,12 +5,12 @@
             <form wire:submit="save" class="space-y-6">
                 <div>
                     <label for="title" class="block text-sm font-medium text-white mb-1">Title</label>
-                    <input type="text" id="title" wire:model.defer="title" class="w-full rounded-md border-0 bg-white/5 py-2 px-3 text-white ring-1 ring-inset ring-white/10 placeholder:text-white/50 focus:ring-2 focus:ring-inset focus:ring-blue-500 sm:text-sm sm:leading-6" placeholder="Enter article title">
+                    <input type="text" id="title" wire:model="form.title" class="w-full rounded-md border-0 bg-white/5 py-2 px-3 text-white ring-1 ring-inset ring-white/10 placeholder:text-white/50 focus:ring-2 focus:ring-inset focus:ring-blue-500 sm:text-sm sm:leading-6" placeholder="Enter article title">
                     @error('title') <span class="text-red-500 text-sm">{{ $message }}</span> @enderror
                 </div>
                 <div>
-                    <label for="article-content" class="block text-sm font-medium text-white mb-1">Content</label>
-                    <textarea id="article-content" wire:model.defer="content" rows="6" class="w-full rounded-md border-0 bg-white/5 py-2 px-3 text-white ring-1 ring-inset ring-white/10 placeholder:text-white/50 focus:ring-2 focus:ring-inset focus:ring-blue-500 sm:text-sm sm:leading-6" placeholder="Enter article content"></textarea>
+                    <label for="article-content" class="block text-sm font-medium text-white mb-1">Article Content</label>
+                    <textarea id="article-content" wire:model="form.content" rows="6" class="w-full rounded-md border-0 bg-white/5 py-2 px-3 text-white ring-1 ring-inset ring-white/10 placeholder:text-white/50 focus:ring-2 focus:ring-inset focus:ring-blue-500 sm:text-sm sm:leading-6" placeholder="Enter article content"></textarea>
                     @error('content') <span class="text-red-500 text-sm">{{ $message }}</span> @enderror
                 </div>
                 <div>

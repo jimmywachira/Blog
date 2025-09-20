@@ -2,31 +2,26 @@
 
 namespace App\Livewire;
 
+use App\Livewire\Forms\ArticleForm;
 use Livewire\Component;
 use Livewire\Attributes\Title;
 use Livewire\Attributes\Validate;
 use App\Models\Article;
+use Livewire\Form;
+
 
 #[Title('Manage Articles')]
 
 class CreateArticle extends AdminComponent
 {
-    #[Title('Create Article')]
-    #[Validate('title', 'required|min:3|max:255')]
-    public $title = '';
-    #[Validate('content', 'required|min:140')]
-    public $content = '';
+
+    public ArticleForm $form;
 
     public function save()
     {
-        $this->validate();
+        $this->form->store();
 
-        \App\Models\Article::create([
-            'title' => $this->title,
-            'content' => $this->content,
-        ]);
-
-        $this->session->flash('message', 'Article created successfully.');
+        #$this->session->flash('message', 'Article created successfully.');
 
         return redirect('/dashboard/articles', ['navigate' => true]);
     }
