@@ -12,7 +12,12 @@ class ArticleForm extends Form
 {
 
     public Article $article;
-    #public $errors = [];
+    
+    public $errors = [];
+
+    public bool $published = false;
+
+    public string $notification = 'none';
 
     #[Validate('required|min:8|max:140')]
     public $title = '';
@@ -22,23 +27,26 @@ class ArticleForm extends Form
 
     public function setArticle(Article $article)
     {
-        $this->article = $article;
         $this->title = $article->title;
         $this->content = $article->content;
+        $this->published = $article->published;
+        $this->notification = $article->notification;
+
+        $this->article = $article;
     }
 
     public function store()
     {
         $this->validate();
 
-        Article::create($this->only('title', 'content'));
+        Article::create($this->only('title', 'content', 'published', 'notification'));
     }
 
     public function update()
     {
         $this->validate();
 
-        $this->article->update($this->only('title', 'content'));
+        $this->article->update($this->only('title', 'content', 'published', 'notification'));
     }
 
 }
