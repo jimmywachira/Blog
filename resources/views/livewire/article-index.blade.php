@@ -9,7 +9,7 @@
                     </div>
                     <div class="p-6 sm:p-8">
                         <h2 class="text-xl font-bold text-white mb-2">{{ $article->title }}</h2>
-                        <p class="text-white/70 leading-relaxed ">{{ Str::words($article->content, 240) }}</p>
+                        <p class="text-white/80 text-sm leading-relaxed tracking-wide">{{ Str::words($article->content, 240) }}</p>
                     </div>
                 </div>
             </a>

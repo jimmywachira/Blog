@@ -23,9 +23,9 @@ class ArticleForm extends Form
 
     public function setArticle(Article $article)
     {
-        $this->article = $article->title;
+        $this->article = $article;
+        $this->title = $article->title;
         $this->content = $article->content;
-        $this->article = $article; 
     }
 
     public function store()

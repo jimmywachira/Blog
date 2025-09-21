@@ -1,17 +1,14 @@
-<div class="m-auto mb-4 p-4">
-
-
-    <div class="flex justify-end mb-4">
-        <a href="/dashboard/articles/create" wire:navigate.hover class="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-2 px-4 shadow-xl rounded-md hover:from-blue-700 hover:to-blue-900 transition">
+<div class="m-auto mt-4">
+    <div class="flex justify-end">
+        <a href="/dashboard/articles/create" wire:navigate.hover class="p-4 rounded-full text-center border hover:border-2 hover:border-white/50 dark:border-white text-white dark:text-white focus:outline-none focus:border-blue-700 transition duration-150 ease-in-out">
             Create Article
         </a>
-
     </div>
 
-    <h1 class="text-3xl text-center text-white mb-4">Articles</h1>
+    <h1 class="text-3xl text-center p-4 text-white mb-4">Articles</h1>
 
     @if (session()->has('message'))
-    <div class="mb-4 p-4 text-green-500 shadow border border-green-500 rounded">
+    <div class="mb-4 p-4 text-blue-500 shadow border border-blue-500 rounded">
         {{ session('message') }}
     </div>
     @endif
@@ -30,8 +27,8 @@
                 <td class="px-4 py-2">{{ $article->id }}</td>
                 <td class="px-4 py-2">{{ $article->title }}</td>
                 <td class="px-4 py-2 space-x-2 capitalize">
-                    <a class="'inline-flex items-center px-4 py-2 text-center border-white dark:border-blue-600 leading-5 text-blue-700 dark:text-white focus:outline-none focus:border-blue-700 transition duration-150 ease-in-out" href="/dashboard/articles/{{ $article->id }}/edit" wire:navigate.hover>edit</a>
-                    <button wire:click="delete({{ $article->id }})" wire:confirm="Are you sure you want to delete this article?" class=" text-red-700 hover:text-red-900 hover:border-2 px-2 py-1 hover:border-red-700">delete</button>
+                    <a class="'inline-flex items-center px-3 py-2 text-center hover:text-blue-700 shadow  lowercase text-blue-900 dark:text-blue-300 focus:outline-none focus:border-blue-700 transition duration-150 ease-in-out" href="/dashboard/articles/{{ $article->id }}/edit" wire:navigate>edit</a>
+                    <button wire:click="delete({{ $article->id }})" wire:confirm="confirm article delete?" class=" text-red-500 hover:text-red-700 px-3 py-1">delete</button>
                 </td>
             </tr>
             @endforeach

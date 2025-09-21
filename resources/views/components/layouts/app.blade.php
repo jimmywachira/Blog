@@ -14,15 +14,15 @@
     <meta name="description" content="A simple Livewire blog application">
     {{-- The default tailwind config is not always sufficient. For a more robust setup, consider installing and configuring it via npm. --}}
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio"></script>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Outfit">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Google Sans Code">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body class="h-full antialiased capitalize font-semibold text-white" style="font-family:Outfit" x-data x-on:click.away="$dispatch('search.clear-results')">
+<body class="h-full antialiased capitalize font-semibold text-white tracking-wide" style="font-family:Google Sans Code" x-data x-on:click.away="$dispatch('search.clear-results')">
     <div class="flex flex-col min-h-screen">
         <header class="py-6 bg-inherit hover:text-white transition">
             <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between" aria-label="Global">
-                <div class="flex items-center gap-x-12">
+                <div class="flex items-center gap-x-4">
                     <x-nav-link :active="request()->routeIs('home')" wire:navigate.hover class="flex items-center gap-2 -m-1.5 p-1.5">
                         <span class="sr-only">J$Co</span>
                         <ion-icon name="logo-laravel" class="h-8 w-auto text-white"></ion-icon>

@@ -28,10 +28,8 @@ class EditArticle extends AdminComponent
         #$this->form->update($this->form->only('title', 'content'));
         $this->form->update();
 
-        #$this->session->flash('message', 'Article updated successfully.');
-
-        return redirect('/dashboard/articles', ["navigate" => true]);
-    }       
+        return redirect()->route('dashboard.articles')->with('message', 'Article updated successfully.');
+    }
 
     public function cancel()
     {

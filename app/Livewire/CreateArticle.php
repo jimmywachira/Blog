@@ -10,7 +10,7 @@ use App\Models\Article;
 use Livewire\Form;
 
 
-#[Title('Manage Articles')]
+// #[Title('Manage Articles')]
 
 class CreateArticle extends AdminComponent
 {
@@ -21,9 +21,9 @@ class CreateArticle extends AdminComponent
     {
         $this->form->store();
 
-        #$this->session->flash('message', 'Article created successfully.');
+        #$this->session()->flash('message', 'Article created successfully.');
 
-        return redirect('/dashboard/articles', ['navigate' => true]);
+        return redirect()->route('dashboard.articles')->with('message', 'Article created successfully.');
     }
 
     public function render()
