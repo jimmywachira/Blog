@@ -10,7 +10,6 @@ use Livewire\Attributes\Title;
 
 class ArticleForm extends Form
 {
-    #[Title('Create Article')]
 
     public Article $article;
     #public $errors = [];
@@ -33,9 +32,6 @@ class ArticleForm extends Form
         $this->validate();
 
         Article::create($this->only('title', 'content'));
-
-        #$this->session->flash('message', 'Article created successfully.');
-        #return redirect('/dashboard/articles', ['navigate' => true]);
     }
 
     public function update()

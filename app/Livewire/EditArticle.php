@@ -12,7 +12,7 @@ use Livewire\Form;
 
 class EditArticle extends AdminComponent
 {
-    // #[Title('Edit Article')]
+    #[Title('Edit Article')]
 
     public ArticleForm $form;
 
@@ -23,17 +23,14 @@ class EditArticle extends AdminComponent
 
     public function save()
     {
-        #$this->validate();
-        #$this->article->update($this->only('title', 'content'));
-        #$this->form->update($this->form->only('title', 'content'));
         $this->form->update();
 
-        return redirect()->route('dashboard.articles')->with('message', 'Article updated successfully.');
+        return redirect('/dashboard/articles', ["navigate" => true])->with('message', 'Article updated successfully');
     }
 
     public function cancel()
     {
-        return redirect('/dashboard/articles', ["navigate" => true]);
+        return redirect('/dashboard/articles', ["navigate" => true])->with('message', 'Edit cancelled');
     }   
 
     public function render()

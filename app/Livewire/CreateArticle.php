@@ -21,8 +21,6 @@ class CreateArticle extends AdminComponent
     {
         $this->form->store();
 
-        #$this->session()->flash('message', 'Article created successfully.');
-
         return redirect()->route('dashboard.articles')->with('message', 'Article created successfully.');
     }
 

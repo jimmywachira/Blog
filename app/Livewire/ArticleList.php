@@ -12,7 +12,7 @@ class ArticleList extends AdminComponent
     public function delete(Article $article){
     
         $article->delete();
-        $this->redirect()->route('dashboard.articles')->with('message', 'Article deleted successfully.');
+        return redirect()->route('dashboard.articles')->with('message', 'Article deleted successfully.');
     }
 
     public function render()
