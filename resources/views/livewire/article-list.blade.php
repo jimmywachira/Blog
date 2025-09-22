@@ -1,8 +1,21 @@
-<div class="m-auto mt-4">
-    <div class="flex justify-end">
-        <a href="/dashboard/articles/create" wire:navigate class="p-4 rounded-full text-center border hover:border-2 hover:border-white/50 dark:border-white text-white dark:text-white focus:outline-none focus:border-blue-700 transition duration-150 ease-in-out">
-            Create Article
-        </a>
+<div>
+    <div class="m-auto mb-4">
+        <div class="mb-3 flex justify-between items-center">
+            <a href="/dashboard/articles/create" wire:navigate class="p-4 rounded-full text-center border hover:border-2 hover:border-white/50 dark:border-white text-white dark:text-white focus:outline-none focus:border-blue-700 transition duration-150 ease-in-out">
+                Create Article
+            </a>
+
+            <div>
+                <button wire:click="showAll" class="text-gray-200 border-2 border-transparent p-2 hover:border-blue-700">
+                    show all
+                </button>
+                <button wire:click="showPublished" class="text-gray-200 border-2 border-transparent p-2 hover:border-blue-700">
+                    show published (
+                    <livewire:published-count placeholder-text="Loading..." />
+                    )
+                </button>
+            </div>
+        </div>
     </div>
 
     <h1 class="text-3xl text-center p-4 text-white mb-4">Articles</h1>
@@ -13,7 +26,7 @@
     </div>
     @endif
 
-    <table>
+    <table class="w-full table-auto ">
         <thead class="px-6 py-3 capitalize text-left">
             <tr class="">
                 <th class="border px-4 py-2">ID</th>
@@ -36,4 +49,8 @@
             @endforeach
         </tbody>
     </table>
+    <div class="mt-4 pt-4">
+        {{ $articles->links() }}
+    </div>
+</div>
 </div>

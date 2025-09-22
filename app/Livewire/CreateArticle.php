@@ -10,8 +10,7 @@ use App\Models\Article;
 use Livewire\Form;
 
 
-// #[Title('Manage Articles')]
-
+#[Title('Create Article')]
 class CreateArticle extends AdminComponent
 {
 

@@ -11,7 +11,7 @@ use Livewire\Attributes\Title;
 class ArticleForm extends Form
 {
 
-    public Article $article;
+    public ?Article $article = null;
     
     public $errors = [];
 
@@ -31,7 +31,7 @@ class ArticleForm extends Form
     {
         $this->title = $article->title;
         $this->content = $article->content;
-        $this->published = $article->published;
+        $this->published = (bool) $article->published;
         $this->notifications = $article->notifications ?? [];
 
         $this->allowNotifications = count($this->notifications) > 0;

@@ -8,7 +8,7 @@
                         <img class="h-full w-full object-cover md:w-full" src="https://picsum.photos/seed/{{ $article->id }}/400/300" alt="{{ $article->title }}">
                     </div>
                     <div class="p-6 sm:p-8">
-                        <h2 class="text-xl font-bold text-white mb-2">{{ $article->title }}</h2>
+                        <h2 class="capitalize text-xl font-bold text-blue-700 mb-2">{{ $article->title }}</h2>
                         <p class="text-white/80 text-sm leading-relaxed tracking-wide">{{ Str::words($article->content, 240) }}</p>
                     </div>
                 </div>
@@ -18,4 +18,6 @@
         <p class="text-white/70 text-center">No articles found.</p>
         @endforelse
     </div>
-</div>
+    <div class="mt-4 pt-4">
+        {{ $articles->links() }}
+    </div>

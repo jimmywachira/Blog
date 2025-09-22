@@ -13,4 +13,4 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body class="h-full antialiased font-semibold text-white w-full " style="font-family:Google Sans Code" x-data x-on:click.away="$dispatch('search.clear-results')">
+<body class="h-full antialiased font-semibold lowercase text-white w-full " style="font-family:Google Sans Code" x-data x-on:click.away="$dispatch('search.clear-results')">

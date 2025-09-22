@@ -5,7 +5,7 @@
                 <!-- You can replace this with a dynamic image source, for example from your article model -->
                 <img src="https://picsum.photos/seed/{{ $article->id }}/800/400" alt="{{ $article->title }}" class="w-full h-64 object-cover rounded-lg shadow-md">
             </div>
-            <h1 class="text-4xl font-bold text-white mb-4">{{ $article->title }}</h1>
+            <h1 class="capitalize text-4xl font-bold text-blue-700 mb-4">{{ $article->title }}</h1>
             <div class="text-lg text-white/70 leading-relaxed space-y-4">
                 <p>{{ $article->content }}</p>
             </div>
