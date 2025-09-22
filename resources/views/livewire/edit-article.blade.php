@@ -21,30 +21,42 @@
                     </label>
                 </div>
 
-                <div class="mb-4">
+                <div class="mb-3">
                     <div>Notification Options</div>
-                    <div class="flex gap-6">
+
+                    <div class="flex mt-2 gap-6">
                         <label class="flex items-center">
-                            <input type="radio" name="notification" value="email" wire:model="form.notification" class="mr-2" />
+                            <input type="radio" value="true" wire:model.boolean="form.allowNotifications" class="mr-2" />
+                            Yes
+                        </label>
+                        <label class="flex items-center">
+                            <input type="radio" value="false" wire:model.boolean="form.allowNotifications" class="mr-2" />
+                            No
+                        </label>
+                    </div>
+
+                    <div class="flex mt-2 gap-6">
+                        <label class="flex items-center">
+                            <input type="checkbox" value="email" wire:model="form.notifications" class="mr-2" />
                             Email
                         </label>
                         <label class="flex items-center">
-                            <input type="radio" name="notification" value="sms" wire:model="form.notification" class="mr-2" />
+                            <input type="checkbox" value="sms" wire:model="form.notifications" class="mr-2" />
                             SMS
                         </label>
                         <label class="flex items-center">
-                            <input type="radio" name="notification" value="none" wire:model="form.notification" class="mr-2" />
-                            None
+                            <input type="checkbox" value="push" wire:model="form.notifications" class="mr-2" />
+                            Push
                         </label>
                     </div>
                 </div>
 
                 <div class="flex justify-end">
-                    <a href="/dashboard/articles" class="inline-flex items-center px-4 py-2 border-2 hover:text-blue-700 border-white/50 shadow text-white bg-inherit hover:border-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 mr-2">
+                    <a href="/dashboard/articles" class="inline-flex items-center px-4 py-2 border-2 hover:text-black border-white/50 shadow text-white bg-inherit hover:border-black focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 mr-2">
                         Cancel
                     </a>
 
-                    <button type="submit" class="inline-flex items-center px-4 py-2 border-2 hover:text-blue-700 border-white/50 shadow text-white bg-inherit hover:border-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
+                    <button type="submit" class="inline-flex items-center px-4 py-2 border-2 hover:text-blue-700 border-white/50 shadow text-white bg-inherit hover:border-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
                         Update
                     </button>
                 </div>

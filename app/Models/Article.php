@@ -11,10 +11,10 @@ class Article extends Model
     use HasFactory;
     protected $fillable = 
     ['title', 'content','published',
-    'notification'];
+    'notifications'];
 
     protected $casts = [
     'published' => 'boolean',
-    'notification' => 'string'
+    'notifications' => 'array'
     ];
 }

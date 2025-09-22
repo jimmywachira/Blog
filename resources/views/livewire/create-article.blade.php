@@ -1,5 +1,5 @@
 <div>
-    <div class="max-w-2xl mx-auto bg-white/10 backdrop-blur-sm rounded-2xl shadow-lg overflow-hidden">
+    <div class="max-w-2xl mx-auto bg-white/10 backdrop-blur-sm rounded-2xl overflow-hidden">
         <div class="p-6 sm:p-8">
             <h1 class="text-3xl font-bold text-white mb-6">Create Article</h1>
             <form wire:submit="save" class="space-y-6">
@@ -16,25 +16,37 @@
 
                 <div class="mb-3">
                     <label class="flex items-center">
-                        <input type="checkbox" name="published" wire:model.boolean="published" class="mr-2" />
+                        <input type="checkbox" name="published" wire:model.boolean="form.published" class="mr-2" />
                         Published
                     </label>
                 </div>
 
                 <div class="mb-4">
                     <div>Notification Options</div>
-                    <div class="flex gap-6">
+
+                    <div class="flex mt-2 gap-6">
                         <label class="flex items-center">
-                            <input type="radio" name="notification" value="email" wire:model="notification" class="mr-2" />
+                            <input type="radio" value="true" wire:model.boolean="form.allowNotification" class="mr-2" />
+                            Yes
+                        </label>
+                        <label class="flex items-center">
+                            <input type="radio" value="false" wire:model.boolean="form.allowNotification" class="mr-2" />
+                            No
+                        </label>
+                    </div>
+
+                    <div x-show="$wire.allowNotifications" class="flex mt-2 gap-6">
+                        <label class="flex items-center">
+                            <input type="checkbox" value="email" wire:model="form.notifications" class="mr-2" />
                             Email
                         </label>
                         <label class="flex items-center">
-                            <input type="radio" name="notification" value="sms" wire:model="notification" class="mr-2" />
+                            <input type="checkbox" value="sms" wire:model="form.notifications" class="mr-2" />
                             SMS
                         </label>
                         <label class="flex items-center">
-                            <input type="radio" name="notification" value="none" wire:model="notification" class="mr-2" />
-                            None
+                            <input type="checkbox" value="push" wire:model="form.notifications" class="mr-2" />
+                            Push
                         </label>
                     </div>
                 </div>
