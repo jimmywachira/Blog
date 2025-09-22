@@ -6,10 +6,10 @@
             </a>
 
             <div>
-                <button wire:click="showAll" class="text-gray-200 border-2 border-transparent p-2 hover:border-blue-700">
+                <button wire:click="showAll" class="text-gray-200 border-2 rounded-full border-white/50  p-2 hover:border-blue-700 hover:text-blue-700">
                     show all
                 </button>
-                <button wire:click="showPublished" class="text-gray-200 border-2 border-transparent p-2 hover:border-blue-700">
+                <button wire:click="showPublished" class="text-gray-200 border-2 rounded-full border-white/50 p-2 hover:border-blue-700 hover:text-blue-700">
                     show published (
                     <livewire:published-count placeholder-text="Loading..." />
                     )

@@ -3,7 +3,7 @@
 
 <header class="py-6 bg-inherit hover:text-white transition">
     <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between" aria-label="Global">
-        <div class="flex items-center gap-x-4">
+        <div class="flex items-center gap-x-4 p-3 m-3">
             <x-nav-link :active="request()->routeIs('home')" wire:navigate.hover class="flex items-center gap-2 -m-1.5 p-1.5">
                 <span class="sr-only">J$Co</span>
                 <ion-icon name="logo-laravel" class="h-8 w-auto text-white"></ion-icon>
