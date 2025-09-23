@@ -4,7 +4,7 @@
             <div class="space-y-8 xl:col-span-1">
                 <a wire:navigate href="/" class="flex items-center gap-2">
                     <ion-icon name="logo-laravel" class="h-8 w-auto text-white"></ion-icon>
-                    <span class="text-xl capitalize font-bold tracking-tight text-white">Blog +</span>
+                    <span class="text-xl capitalize text-blue-800 font-bold tracking-tight">Blog +</span>
                 </a>
                 <p class="text-white/70 text-base">
                     A simple blog built with the TALL stack.
@@ -27,7 +27,7 @@
                         {{-- You can add navigation links here if needed --}}
                     </div>
                     <div class="mt-4 md:mt-0">
-                        <h3 class="text-sm font-semibold text-blue-700 tracking-wider capitalize">Subscribe to our newsletter</h3>
+                        <h3 class="text-sm font-semibold text-blue-700 tracking-wider uppercase">Subscribe to our newsletter</h3>
                         <p class="mt-4 text-base text-white/70">No Spams! Just the latest news and resources sent to your inbox weekly.</p>
                         <form class="mt-4 sm:flex sm:max-w-md">
                             <label for="email-address" class="sr-only">Email address</label>

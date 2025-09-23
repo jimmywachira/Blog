@@ -3,7 +3,7 @@
         <div class="p-6 sm:p-8">
             <h1 class="text-3xl font-bold text-white text-center mb-6">Edit Article</h1>
 
-            <form wire:submit="save" class="space-y-6">
+            <form wire:submit.prevent="save" class="space-y-6">
                 <div>
                     <label wire:dirty.class="text-blue-500/80" wire:target='form.title' for="title" class="block text-white/80 mb-1">
                         Title <span wire:dirty wire:target="form.title" class=" text-sm p-2 text-blue-500/80"> * </span>
@@ -57,12 +57,12 @@
                 </div>
         </div>
 
-        <div class="flex justify-end p-6">
-            <a href="/dashboard/articles" class="inline-flex items-center px-4 py-2 border-2 hover:text-black border-white/50 shadow text-white bg-inherit hover:border-black focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 m-2">
+        <div class="grid grid-cols-2 justify-end p-4 w-1/2">
+            <a href="/dashboard/articles" class="text-center p-2 border-2 hover:text-black border-black/50 shadow shadow-black text-white bg-inherit hover:border-black focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 m-2">
                 Cancel
             </a>
 
-            <button type="submit" class="inline-flex items-center m-2 px-4 py-2 border-2 border-white/50 shadow text-white bg-inherit hover:text-blue-500/80 hover:border-blue-500/80 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
+            <button type="submit" class="m-2 p-2 border-2 border-blue-700/50 shadow shadow-blue-700 text-white bg-inherit hover:text-blue-500/80 hover:border-blue-500/80">
                 Update
             </button>
         </div>

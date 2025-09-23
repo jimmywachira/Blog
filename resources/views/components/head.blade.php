@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" class="h-full absolute bg-black/90 bottom-0 left-0  right-0 top-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:80px_80px]">
+<html lang="en" class="h-full bg-black/90 absolute bottom-0 left-0  right-0 top-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:60px_60px]">
 
 <head>
     <meta charset=" UTF-8">
@@ -13,4 +13,4 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body class="h-full antialiased font-semibold lowercase text-white w-full " style="font-family:Google Sans Code" x-data x-on:click.away="$dispatch('search.clear-results')">
+<body class="h-full antialiased font-semibold capitalize text-white w-full " style="font-family:Google Sans Code" x-data x-on:click.away="$dispatch('search.clear-results')">

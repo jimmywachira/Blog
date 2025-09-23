@@ -1,7 +1,7 @@
 <div>
     <div class="m-auto mb-4">
         <div class="mb-3 flex justify-between items-center">
-            <a href="/dashboard/articles/create" wire:navigate class="p-4 rounded-full text-center border hover:border-2 hover:border-white/50 dark:border-white text-white dark:text-white focus:outline-none focus:border-blue-700 transition duration-150 ease-in-out">
+            <a href="/dashboard/articles/create" wire:navigate class="p-4 animate-pulse rounded-full text-center border hover:border-2 hover:border-white/50 dark:border-white text-white dark:text-white focus:outline-none focus:border-blue-700 transition duration-150 ease-in-out">
                 Create Article
             </a>
 
@@ -26,7 +26,7 @@
     </div>
     @endif
 
-    <table class="w-full table-auto ">
+    <table class="w-full table-auto bg-inherit shadow backdrop-blur-lg">
         <thead class="px-6 py-3 capitalize text-left">
             <tr class="">
                 <th class="border px-4 py-2">ID</th>
@@ -35,7 +35,7 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($articles as $article)
+            @foreach ($this->articles as $article)
             <tr class="border-b" wire:key="{{ $article->id }}">
                 <td class="px-4 py-2">{{ $article->id }}</td>
                 <td class="px-4 py-2">{{ $article->title }}</td>
@@ -50,7 +50,7 @@
         </tbody>
     </table>
     <div class="mt-4 pt-4">
-        {{ $articles->links() }}
+        {{ $this->articles->links() }}
     </div>
 </div>
 </div>

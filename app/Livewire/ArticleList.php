@@ -6,6 +6,7 @@ use App\Models\Article;
 use Livewire\Component;
 use Livewire\Attributes\Title;
 use Livewire\WithPagination;
+use Livewire\Attributes\Computed;
 
 #[Title('Manage Articles')]
 class ArticleList extends AdminComponent
@@ -14,10 +15,24 @@ class ArticleList extends AdminComponent
 
     public $showOnlyPublished = false;
 
+    #[Computed()]
+    public function articles(){
+        $query = Article::query();
+
+        if($this->showOnlyPublished){
+            $query->where('published', true);
+        }
+
+        return $query->paginate(20,pageName: 'articles->page');
+        
+    }
 
     public function delete(Article $article){
-    
+        if($this->articles->count()<10){
+            throw new \Exception('Cannot delete article when there are less than 10 articles.'); 
+        }
         $article->delete();
+        unset($this->articles);
         return redirect()->route('dashboard.articles')->with('message', 'Article deleted successfully.');
     }
 
@@ -29,19 +44,5 @@ class ArticleList extends AdminComponent
     public function showPublished(){
         $this->showOnlyPublished = true;
         $this->resetPage('articles->page');
-    }
-
-    public function render()
-    {
-        $query = Article::query();
-
-        if($this->showOnlyPublished){
-            $query->where('published', true);
-        }
-
-        return view('livewire.article-list', [
-            'articles' => $query->paginate(20,pageName: 'articles->page'),
-        ]);
-
     }
 }
