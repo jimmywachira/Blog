@@ -6,10 +6,15 @@
             </a>
 
             <div>
-                <button wire:click="showAll" class="text-gray-200 border-2 rounded-full border-white/50  p-2 hover:border-blue-700 hover:text-blue-700">
+                <button @class([ 'text-gray-200 p-2 hover:bg-blue-700' , 'bg-gray-700'=> $showOnlyPublished,
+                    'bg-blue-700/20' => !$showOnlyPublished
+                    ]) wire:click="togglePublished(false)">
                     show all
                 </button>
-                <button wire:click="showPublished" class="text-gray-200 border-2 rounded-full border-white/50 p-2 hover:border-blue-700 hover:text-blue-700">
+
+                <button @class([ 'text-gray-200 p-2 hover:bg-blue-700' , 'bg-blue-700'=> $showOnlyPublished,
+                    'bg-gray-700/20' => !$showOnlyPublished
+                    ]) wire:click="togglePublished(true)">
                     show published (
                     <livewire:published-count placeholder-text="Loading..." />
                     )

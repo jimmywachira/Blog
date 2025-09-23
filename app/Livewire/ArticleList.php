@@ -7,12 +7,14 @@ use Livewire\Component;
 use Livewire\Attributes\Title;
 use Livewire\WithPagination;
 use Livewire\Attributes\Computed;
+use Livewire\Attributes\Session;
 
 #[Title('Manage Articles')]
 class ArticleList extends AdminComponent
 {
     use WithPagination;
 
+    #[Session('published')]
     public $showOnlyPublished = false;
 
     #[Computed()]
@@ -24,7 +26,6 @@ class ArticleList extends AdminComponent
         }
 
         return $query->paginate(20,pageName: 'articles->page');
-        
     }
 
     public function delete(Article $article){
@@ -33,16 +34,12 @@ class ArticleList extends AdminComponent
         }
         $article->delete();
         unset($this->articles);
+        cache()->forget('published-count');
         return redirect()->route('dashboard.articles')->with('message', 'Article deleted successfully.');
     }
 
-    public function showAll(){
-        $this->showOnlyPublished = false;
-        $this->resetPage('articles->page');
-    }
-
-    public function showPublished(){
-        $this->showOnlyPublished = true;
+    public function togglePublished($showOnlyPublished){
+        $this->showOnlyPublished = $this->showOnlyPublished;
         $this->resetPage('articles->page');
     }
 }

@@ -11,7 +11,7 @@ use Livewire\Attributes\Url;
 class Search extends Component
 {
     // #[Validate('required')]
-    // #[Url(as:'q', except: '', history: true)]
+    #[Url(as:'q', except: '')]
     public $searchText = '';
     // public $results = [];
 
@@ -30,13 +30,14 @@ class Search extends Component
     //         ->get();
     // }
 
-    public function queryString()
+    protected function queryString()
     {
         return [
-            'searchText' => ['except' => ''],
-            'as' => 'q',
-            'history' => true,
-            'except' => '',
+            'searchText' => [
+                'as' => 'q',
+                'history' => true,
+                'except' => '',
+            ]
         ];
     }
 
