@@ -19,7 +19,7 @@
                     @error('form.content') <div class="text-red-500 mt-2 text-sm">{{ $message }}</div> @enderror
                 </div>
 
-                <div>
+                <div class="mb-2">
                     <label for="body" class="block text-white/80 mb-1">
                         Photo
                     </label>
@@ -28,13 +28,17 @@
                         <input type="file" id="photo" wire:model="form.photo" class="w-full rounded-md border-0 bg-white/5 py-2 px-3 text-white ring-1 ring-inset ring-white/10 placeholder:text-white/50 focus:ring-2 focus:ring-inset focus:ring-gray-500 sm:text-sm sm:leading-6" />
                     </div>
 
-                    <div>
+                    <div class="mb-3 text-center">
                         @if($form->photo)
-                        <img src="{{ Storage::url($form->photo->temporaryUrl()) }}" class="w-1/2 rounded-lg shadow-md max-h-60" alt="">
+                        <img src="{{ Storage::url($form->photo->temporaryUrl()) }}" class="w-1/2 inline rounded-lg shadow-md max-h-60" alt="">
                         @elseif ($form->photo_path)
                         <span class="text-sm text-white/80">Current Photo:</span>
-                        <img src="{{ Storage::url($form->photo_path) }}" class="w-1/2 rounded-lg shadow-md max-h-60" alt="">
-
+                        <img src="{{ Storage::url($form->photo_path) }}" class="w-1/2 rounded-lg inline shadow-md max-h-60" alt="">
+                        <div class="mt-2">
+                            <button type="button" wire:click="downloadPhoto" class="text-blue-500 hover:text-blue-700 px-4 py-2 border-2 border-blue-500 hover:border-blue-700 rounded shadow shadow-blue-500">
+                                Download Photo
+                            </button>
+                        </div>
                         @else
                         <span class="text-sm text-white/80">No photo uploaded.</span>
                         @endif
@@ -82,11 +86,11 @@
         </div>
 
         <div class="grid grid-cols-2 justify-end p-4 w-1/2">
-            <a href="/dashboard/articles" class="text-center p-2 border-2 hover:text-black border-black/50 shadow shadow-black text-white bg-inherit hover:border-black m-2">
+            <a href="/dashboard/articles" class="text-black/80 hover:text-black px-4 py-2 border-2 border-black shadow  hover:shadow-black hover:border-black rounded m-2">
                 Cancel
             </a>
 
-            <button type="submit" class="m-2 p-2 border-2 border-blue-700/50 shadow shadow-blue-700 text-white bg-inherit hover:text-blue-500/80 hover:border-blue-500/80">
+            <button type="submit" class="text-blue-500 hover:text-blue-700 px-4 py-2 border-2 border-blue-500 shadow hover:shadow-blue-500 hover:border-blue-700 rounded m-2">
                 Update
             </button>
         </div>

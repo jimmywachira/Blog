@@ -5,9 +5,9 @@
                 Create Article
             </a>
 
-            <div>
-                <button @class([ 'text-gray-200 p-2 hover:bg-blue-700' , 'bg-gray-700'=> $showOnlyPublished,
-                    'bg-blue-700/20' => !$showOnlyPublished
+            <div class="flex gap-2">
+                <button @class([ 'text-gray-200 p-2 hover:bg-blue-700' , 'bg-blue-700'=> $showOnlyPublished,
+                    'bg-gray-700/20' => !$showOnlyPublished
                     ]) wire:click="togglePublished(false)">
                     show all
                 </button>
