@@ -20,6 +20,24 @@
                 </div>
 
                 <div class="mb-3">
+                    <label for="body" class="block text-white/80 mb-1">
+                        Photo
+                    </label>
+
+                    <div class="flex items-center space-x-4 mb-4">
+                        <input type="file" id="photo" wire:model="form.photo" multiple class="w-full rounded-md border-0 bg-white/5 py-2 px-3 text-white ring-1 ring-inset ring-white/10 placeholder:text-white/50 focus:ring-2 focus:ring-inset focus:ring-gray-500 sm:text-sm sm:leading-6" />
+                    </div>
+
+                    <div>
+                        @if($form->photo)
+                        <img src="{{ Storage::url($form->photo->temporaryUrl()) }}" class="w-1/2 rounded-lg shadow-md max-h-60" alt="">
+                        @endif
+                    </div>
+
+                    @error('form.photo') <div class="text-red-500 mt-2 text-sm">{{ $message }}</div> @enderror
+                </div>
+
+                <div class="mb-3">
                     <label wire:dirty.class="text-blue-500/80" wire:target='form.published' class="flex items-center">
                         <input type="checkbox" name="published" wire:model.boolean="form.published" class="mr-2" />
                         Published <span wire:dirty wire:target="form.published" class=" p-2 text-sm text-blue-500/80"> * </span>

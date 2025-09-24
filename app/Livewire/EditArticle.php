@@ -8,10 +8,13 @@ use Livewire\Attributes\Validate;
 use App\Models\Article;
 use App\Livewire\Forms\ArticleForm;
 use Livewire\Form;
+use Livewire\Features\SupportFileUploads\WithFileUploads;
 
 
 class EditArticle extends AdminComponent
-{
+{   
+    use WithFileUploads;
+    
     #[Title('Edit Article')]
 
     public ArticleForm $form;
@@ -24,14 +27,9 @@ class EditArticle extends AdminComponent
     public function save()
     {
         $this->form->update();
-
-        return redirect('/dashboard/articles', ["navigate" => true])->with('message', 'Article updated successfully');
+        session()->flash('message', 'Article updated successfully!');
+        $this->redirect(ArticleList::class, navigate: true);
     }
-
-    public function cancel()
-    {
-        return redirect('/dashboard/articles', ["navigate" => true])->with('message', 'Edit cancelled');
-    }   
 
     public function render()
     {

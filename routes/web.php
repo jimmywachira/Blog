@@ -15,7 +15,7 @@ use App\Livewire\EditArticle;
 Route::get('/', ArticleIndex::class)->name('home');
 Route::get('/articles/{article}', ShowArticle::class)->name('articles.show');
 Route::get('/dashboard', Dashboard::class)->name('dashboard');
-Route::get('/dashboard/articles', ArticleList::class)->name('dashboard.articles');
+Route::get('/dashboard/articles', ArticleList::class)->name('dashboard.articles.index');
 Route::get('/dashboard/articles/create', CreateArticle::class)->name('dashboard.articles.create');
 Route::get('/dashboard/articles/{article}/edit', EditArticle::class)->name('dashboard.articles.edit');
 

@@ -14,7 +14,7 @@ class ArticleList extends AdminComponent
 {
     use WithPagination;
 
-    #[Session('published')]
+    // #[Session('published')]
     public $showOnlyPublished = false;
 
     #[Computed()]
