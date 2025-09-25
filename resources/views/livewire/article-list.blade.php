@@ -45,7 +45,7 @@
                 <td class="px-4 py-2">{{ $article->id }}</td>
                 <td class="px-4 py-2">{{ $article->title }}</td>
                 <td class="px-4 py-2 space-x-2 capitalize">
-                    <a class="'inline-flex items-center px-3 py-2 text-center hover:text-blue-700 shadow  lowercase text-blue-900 dark:text-blue-300 focus:outline-none focus:border-blue-700 transition duration-150 ease-in-out" href="/dashboard/articles/{{ $article->id }}/edit" wire:navigate>
+                    <a class="'inline-flex items-center px-3 py-2 text-center hover:text-blue-700 shadow lowercase text-blue-900 dark:text-blue-300 focus:outline-none focus:border-blue-700 transition duration-150 ease-in-out" href="/dashboard/articles/{{ $article->id }}/edit" wire:navigate>
                         edit
                     </a>
                     <button wire:click="delete({{ $article->id }})" wire:confirm="confirm article delete?" class=" text-red-500 hover:text-red-700 px-3 py-1">delete</button>

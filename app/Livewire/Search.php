@@ -7,7 +7,10 @@ use Livewire\Attributes\Validate;
 use App\Models\Article;
 use Livewire\Attributes\On;
 use Livewire\Attributes\Url;
+use Livewire\Attributes\Isolate;
 
+
+#[Isolate]
 class Search extends Component
 {
     // #[Validate('required')]

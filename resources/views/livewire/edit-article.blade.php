@@ -85,7 +85,7 @@
                 </div>
         </div>
 
-        <div class="grid grid-cols-2 justify-end p-4 w-1/2">
+        <div class="grid grid-cols-2 justify-end p-4 w-1/2 overflow-hidden">
             <a href="/dashboard/articles" class="text-black/80 hover:text-black px-4 py-2 border-2 border-black shadow  hover:shadow-black hover:border-black rounded m-2">
                 Cancel
             </a>
