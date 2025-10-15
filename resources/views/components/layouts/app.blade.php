@@ -40,6 +40,9 @@
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
 @livewireScripts
+{{-- Alpine.js for interactive components --}}
+{{-- <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script> --}}
+
 <x-footer />
 </div>
 
@@ -49,5 +52,6 @@
         });
 
     </script> --}}
+
 </body>
 </html>

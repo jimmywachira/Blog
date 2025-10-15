@@ -5,16 +5,17 @@ namespace App\Livewire;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use Livewire\Attributes\Validate;
+use Livewire\Attributes\Title;
 
-
+#[Title('Login')]
 class Login extends Component
 {
 
     #[Validate('required|email')]
-    public $email;
+    public $email='test@example.com';
 
     #[Validate('required|min:6')]
-    public $password;
+    public $password='password';
 
     public function authenticate()
     {

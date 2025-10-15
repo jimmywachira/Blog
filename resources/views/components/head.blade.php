@@ -13,4 +13,10 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body class="antialiased font-semibold capitalize text-white/40 w-full leading-relaxed" style="font-family:Google Sans Code" x-data x-on:click.away="$dispatch('search.clear-results')">
+<body class="w-full antialiased font-semibold capitalize text-white/40 leading-relaxed" style="font-family:Google Sans Code" x-data x-on:click.away="$dispatch('search.clear-results')">
+    <div class="fixed inset-0 -z-10">
+        You can replace this with your own image
+        <img src="https://picsum.photos/seed/laracast-blog/1920/1080" class="object-cover w-full h-full" alt="">
+        This div provides the blur and a dark overlay
+        <div class="absolute inset-0 bg-black/5 backdrop-blur-md"></div>
+    </div>
